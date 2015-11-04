@@ -2,6 +2,7 @@
 
 ---
 
+
 ## 查看Java是否安装
 ```
 java -version
