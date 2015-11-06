@@ -6,6 +6,10 @@
 
 [Linux下Java环境配置](https://github.com/Ac-heron/myblogs/blob/master/Linux%E4%B8%8BJava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
 
+[Java开发环境配置](https://github.com/Ac-heron/myblogs/blob/master/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83-%E9%85%8D%E7%BD%AE.md)
+
+[Install tomcat on linux](https://github.com/Ac-heron/myblogs/blob/master/Install%20tomcat%20on%20linux.md)
+
 [Linux系统MySQL的安装与使用](https://github.com/Ac-heron/myblogs/blob/master/Linux%E7%B3%BB%E7%BB%9FMySQL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8.md)
 
 [以策略模式取代IF-ELSE语句](https://github.com/Ac-heron/myblogs/blob/master/%E4%BB%A5%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E5%8F%96%E4%BB%A3IF-ELSE%E8%AF%AD%E5%8F%A5.md)
