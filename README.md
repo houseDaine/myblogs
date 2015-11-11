@@ -26,5 +26,7 @@
 
 [阅读摘录《人生五大问题》安德烈莫罗阿](https://github.com/Ac-heron/myblogs/blob/master/%E9%98%85%E8%AF%BB%E6%91%98%E5%BD%95%E3%80%8A%E4%BA%BA%E7%94%9F%E4%BA%94%E5%A4%A7%E9%97%AE%E9%A2%98%E3%80%8B%E5%AE%89%E5%BE%B7%E7%83%88%E8%8E%AB%E7%BD%97%E9%98%BF.md)
 
+[《我的思想之路》Isaiah Berlin-读书笔记]()
+
 
 
