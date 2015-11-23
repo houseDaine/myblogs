@@ -2,6 +2,8 @@
 
 ## Code
 
+[java中的枚举类型](https://github.com/Ac-heron/myblogs/blob/master/Java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B(enum%20type).md)
+
 [Echarts使用总结](https://github.com/Ac-heron/myblogs/blob/master/ECharts%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93.md)
 
 [Linux下Java环境配置](https://github.com/Ac-heron/myblogs/blob/master/Linux%E4%B8%8BJava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
@@ -26,7 +28,7 @@
 
 [阅读摘录《人生五大问题》安德烈莫罗阿](https://github.com/Ac-heron/myblogs/blob/master/%E9%98%85%E8%AF%BB%E6%91%98%E5%BD%95%E3%80%8A%E4%BA%BA%E7%94%9F%E4%BA%94%E5%A4%A7%E9%97%AE%E9%A2%98%E3%80%8B%E5%AE%89%E5%BE%B7%E7%83%88%E8%8E%AB%E7%BD%97%E9%98%BF.md)
 
-[《我的思想之路》Isaiah Berlin-读书笔记]()
+[《我的思想之路》Isaiah Berlin-读书笔记](https://github.com/Ac-heron/myblogs/blob/master/%E3%80%8A%E6%88%91%E7%9A%84%E6%80%9D%E6%83%B3%E4%B9%8B%E8%B7%AF%E3%80%8BIsaiah%20Berlin-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
 
 
 
