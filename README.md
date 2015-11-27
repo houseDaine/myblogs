@@ -1,4 +1,4 @@
-# myblogs http://www.iacheron.com
+http://www.iacheron.com
 
 ## Code
 
