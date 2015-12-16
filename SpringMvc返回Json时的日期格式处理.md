@@ -41,8 +41,8 @@ public class CustomerObjectMapper extends ObjectMapper {
               <property name="objectMapper" ref="customerObjectMapper"></property>
           </bean>
       </mvc:message-converters>       
-    </mvc:annotation-driven>
-    <bean id="customerObjectMapper" class="com.wmchoice.customer.module.hspd.util.CustomerObjectMapper"></bean>
+ </mvc:annotation-driven>
+ <bean id="customerObjectMapper" class="com.iacheron.util.CustomerObjectMapper"></bean>
 ```
 
 
