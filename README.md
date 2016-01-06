@@ -2,6 +2,8 @@ http://www.iacheron.com
 
 ## Code
 
+[Java的链式调用](https://github.com/Ac-heron/myblogs/blob/master/Java的链式调用.md)
+
 [springmvc返回json时的日期格式处理](https://github.com/Ac-heron/myblogs/blob/master/SpringMvc返回Json时的日期格式处理.md)
 
 [java中的枚举类型](https://github.com/Ac-heron/myblogs/blob/master/Java中的枚举类型(enum type).md)
