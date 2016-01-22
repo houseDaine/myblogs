@@ -1,6 +1,7 @@
 http://www.iacheron.com
 
-## Code
+
+[我是程序员,我不会修电脑](https://github.com/Ac-heron/myblogs/blob/master/我是程序员,我不会修电脑.md)
 
 [一段代码的重构过程](https://github.com/Ac-heron/myblogs/blob/master/一段代码的重构过程.md)
 
@@ -27,10 +28,6 @@ http://www.iacheron.com
 [编程神器VIM安装美化](https://github.com/Ac-heron/myblogs/blob/master/编程神器VIM安装美化.md)
 
 [Git常用命令总结](https://github.com/Ac-heron/myblogs/blob/master/Git常用命令总结.md)
-
-## Life
-
-[我是程序员,我不会修电脑](https://github.com/Ac-heron/myblogs/blob/master/我是程序员,我不会修电脑.md)
 
 [2015年所读书](https://github.com/Ac-heron/myblogs/blob/master/2015年所读书.md)
 
