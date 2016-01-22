@@ -30,6 +30,8 @@ http://www.iacheron.com
 
 ## Life
 
+[我是程序员,我不会修电脑](https://github.com/Ac-heron/myblogs/blob/master/我是程序员,我不会修电脑.md)
+
 [2015年所读书](https://github.com/Ac-heron/myblogs/blob/master/2015年所读书.md)
 
 [我内心平静地像一潭死水](https://github.com/Ac-heron/myblogs/blob/master/我内心平静地像一潭死水.md)
