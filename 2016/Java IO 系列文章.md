@@ -80,8 +80,8 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
 ---
 
-# InputStream OutputStream
-无论数据源或目的地为何，只要设法取得InputStream或OutputStream的实例，接下来操作输入 / 输出的方式都是一致，无须理会来源或目的地的真正形式
+# InputStream与OutputStream
+对于数据流的读写操作，无论数据源或目的地为何，只要取得InputStream或OutputStream的实例，接下来操作输入 输出的方式其实都是大同小异的。
 
 ---
 # File类的使用
