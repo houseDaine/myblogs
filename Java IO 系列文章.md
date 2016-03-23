@@ -1,0 +1,163 @@
+﻿# Java IO 系列文章
+
+标签（空格分隔）： java
+
+---
+
+- Java I/O之基本概念
+- Java I/O之I/O框架体系
+- Java I/O之InputStream与OutputStream
+- Java I/O之Reader与Writer
+- Java I/O之字节与字符的转化
+- Java I/O之字节缓冲流  
+- Java I/O之File类的使用
+- Java I/O之RandomAccessFile类的使用
+- Java I/O之对象的序列化和反序列化
+- Java I/O之使用Apache IO库
+- Java I/O之设计模式的使用
+
+---
+# 概述
+
+## 流
+在`Java API`中,流的概念在`JDK1.0`中就存在了。简单的来说,流是一组有顺序的,有起点和终点的字节序列,是一个连续的数据流。`java.io`包下根据数据传输特性将流抽象为各种类,方便直观的进行数据操作。
+
+## 输入输出
+根据流向不同,可以从其中读入一个字节序列的对象称作`输入流`,可以向其中写入一个字节序列的对象称作`输出流`.其中输入输出的数据源和目标媒介可以是文件、管道、网络、内存、磁盘等。
+
+## Java I/O的主要用途
+`java.io`包下有大量的类，其中大部分类是`InputStream`、`OutputStream`、`Reader`、`Writer`的子类，针对不同业务场景选择使用相关类，这些类主要包含了一下功能：
+    
+- 文件访问
+- 网络访问
+- 内存缓存访问
+- 线程内部通信(管道)
+- 缓冲
+- 过滤
+- 解析
+- 读写文本
+- 读写基本类型数据
+- 读写对象
+
+## 流的分类
+
+可以按以下三种方式来进行分类：
+
+### 一：按流的方向
+根据流的流动方向，可以分为输入流（`InputStream`）和输出流（`OutputStream`）。输入流只能从中读取数据而不能写入，输出流则相反。所有输入输出流的命名都以`InputStream`和`OutputStream`结尾。
+
+### 二：按传输单位
+根据对流的传输单位不同，可以将流分为`字节流(Byte Stream)`和`字符流(Character Stream)`。
+
+- 字节流：字节流以字节(8bits)为单位进行读写。字节流的类都是`InputStream`和`OutputStream`类的子类。
+
+- 字符流：字符流则以字符(16bits)为单位进行读写。字符流的类都是`Reader`和`Writer`类的子类，命名都以`Reader`和`Writer`结尾。字符流采用Unicode编码。
+
+可以使用`InputStreamReader`和`OutputStreamWriter`将字节流转换为字符流。
+
+### 三：按关联特点
+根据数据源所关联的是数据源还是其它数据流，可以分为`节点流(Node Stream)`和`处理流(Processing Stream)`。
+
+- 节点流：节点流是最基本的流，直接提供输入输出功能，一般用于直接从磁盘，内存等指定的位置进行读写操作。
+
+- 处理流：处理流是高级的流，同节点流配合使用，一般用于对节点流或其它输入输出流进行封装，提供更丰富的输入输出功能。创建处理流时要将一个流对象作为参数来调用构造方法，且处理流可以嵌套使用。
+
+```
+InputStream in = new DataInputStream(
+        new BufferedInputStream(
+            new FileInputStream( “Source.txt” )
+    )
+)
+```
+
+## Java IO类库的基本架构
+
+Java中的流主要分为两个层次结构，一个层次用于处理字节输入输出;另一个层次处理字符的输入和输出。比如，`InputStream`和`OutputStream`可以处理单个的字节和字节数组，要想读取字符串或数字，就要用到更强大的子类，如`DataInputStream`和`DataOutputStream`可以以二进制格式读取所有的基本Java类型。
+
+下图列出了IO流的层次结构：
+![java-IO](images/Java-IO.png)
+
+
+---
+
+# InputStream OutputStream
+无论数据源或目的地为何，只要设法取得InputStream或OutputStream的实例，接下来操作输入 / 输出的方式都是一致，无须理会来源或目的地的真正形式
+
+---
+# File类的使用
+`File`类中的方法主要分为以下四种:
+
+- 文件名相关方法
+
+    getAbsoluteFile() 
+    getAbsolutePath()
+    getName() 
+    getParent()
+    getParentFile()
+    getPath() 
+    renameTo(File dest)
+    
+- 文件状态相关方法
+
+    exists()
+    canExecute()
+    canRead()
+    canWrite() 
+    isFile()
+    isDirectory() 
+    isAbsolute()(UNIX/Linux中是否以/开头) 
+    isHidden() 
+    lastModified()
+    length()
+
+- 文件操作
+
+createNewFile()
+createTempFile(String prefix, String suffix)
+delete()
+deleteOnExit() 
+setExecutable(boolean executable) 
+setReadOnly()
+
+- 目录操作
+
+mkdir() 
+mkdirs() 
+list()
+list(FilenameFilter filter) 
+listFiles()
+listFiles(FileFilter filter) 
+listRoots()
+
+具体方法请参考[JDK文档](http://docs.oracle.com/javase/8/docs/api/).
+
+
+---
+
+---
+
+
+
+参考资料:
+- 《深入分析Java Web技术内幕》许令波
+- 《Java编程思想》
+- 《Java核心技术卷2》
+-  http://www.jikexueyuan.com/course/215_1.html
+-  http://www.imooc.com/learn/123
+- http://www.2cto.com/kf/201312/262036.html
+- http://blog.csdn.net/yczz/article/details/38761237
+- http://freejavaguide.com/corejava-io.pfd
+- http://www.htbenet.cn/zaixianjiaocheng/java/748.html
+- https://segmentfault.com/a/1190000000740793
+- http://ifeve.com/java-io/
+- http://www.infoq.com/cn/articles/cf-java-i-o
+
+
+序列化：将对象转换为连续的字节数据，这些数据在
+以后仍然可以被还原，且与操作系统无关。不能保存和读取transient和static类型的变量
+
+
+
+
+
+
