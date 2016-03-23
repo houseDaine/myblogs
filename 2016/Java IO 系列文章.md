@@ -75,7 +75,7 @@ InputStream in = new DataInputStream(
 Java中的流主要分为两个层次结构，一个层次用于处理字节输入输出;另一个层次处理字符的输入和输出。比如，`InputStream`和`OutputStream`可以处理单个的字节和字节数组，要想读取字符串或数字，就要用到更强大的子类，如`DataInputStream`和`DataOutputStream`可以以二进制格式读取所有的基本Java类型。
 
 下图列出了IO流的层次结构：
-![java-IO](images/Java-IO.png)
+![java-IO](../images/Java-IO.png)
 
 
 ---

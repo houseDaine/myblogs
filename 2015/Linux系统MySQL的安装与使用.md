@@ -11,8 +11,8 @@ sudo apt-get install mysql-server
 ### 配置文件my.cnf
 MySQL的配置文件是/etc/mysql/my.cnf,主要用于配置数据库文件的存储位置，日志文件等，以下是安装之后默认的配置参数。
 
-![mysql配置参数1](http://www.iacheron.com/wp-content/uploads/2015/07/2015.07.24_19h25m36s_003_.jpg)
-![mysql配置参数2](http://www.iacheron.com/wp-content/uploads/2015/07/2015.07.24_19h25m24s_002_.jpg)
+![mysql配置参数1](http://www.herohuang.com/wp-content/uploads/2015/07/2015.07.24_19h25m36s_003_.jpg)
+![mysql配置参数2](http://www.herohuang.com/wp-content/uploads/2015/07/2015.07.24_19h25m24s_002_.jpg)
 注意：
 每次修改my.cnf时，都需要重新启动mysqld守护进程，可以使用如下命令：
 ```

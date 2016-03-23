@@ -85,7 +85,7 @@ ECharts图表大部分要关心的是option的实现，这里以我的今年9月
 </script>
 ```
 ### 五、效果图
-![2015read](http://www.iacheron.com/wp-content/uploads/2015/09/2015.09.24_11h01m16s_002_.jpg)
+![2015read](http://www.herohuang.com/wp-content/uploads/2015/09/2015.09.24_11h01m16s_002_.jpg)
 
 
 ## 图表拖拽
