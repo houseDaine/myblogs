@@ -27,7 +27,7 @@
 
 ## Java I/O的主要用途
 `java.io`包下有大量的类，其中大部分类是`InputStream`、`OutputStream`、`Reader`、`Writer`的子类，针对不同业务场景选择使用相关类，这些类主要包含了一下功能：
-    
+
 - 文件访问
 - 网络访问
 - 内存缓存访问
@@ -82,6 +82,20 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
 # InputStream与OutputStream
 对于数据流的读写操作，无论数据源或目的地为何，只要取得InputStream或OutputStream的实例，接下来操作输入 输出的方式其实都是大同小异的。
+
+ - InputStream中的基本方法：
+
+   ```
+   read()
+   read(byte b[])
+   read(byte b[],int off,int len,)
+   ```
+
+ - OutputStream中的基本方法：
+
+
+# Reader与Write
+
 
 ---
 # File类的使用
