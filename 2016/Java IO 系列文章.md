@@ -1,4 +1,4 @@
-﻿# Java IO 系列文章
+# Java IO 系列文章
 
 标签（空格分隔）： java
 
@@ -80,10 +80,11 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
 ---
 
-# InputStream与OutputStream
+# 字节流：InputStream与OutputStream
 对于数据流的读写操作，无论数据源或目的地为何，只要取得InputStream或OutputStream的实例，接下来操作输入 输出的方式其实都是大同小异的。
 
- - InputStream中的基本方法：
+## 字节流基本方法
+ - InputStream中的基本方法,用于从输入流中读取字节：
 
    ```
    read()
@@ -91,25 +92,69 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
    read(byte b[],int off,int len,)
    ```
 
- - OutputStream中的基本方法：
+ - OutputStream中的基本方法，用于将字节写入输出流：
+ 
+     ```
+    write(int b); 
+    write(byte[] b); 
+    write(byte[] b, int off, int len) 
+    ```
+## 字节流使用案例
+下面用最基本的InputStream和OutputStream写一个通过的`flow`方法，将数据从数据源取出，写入目的地，代码如下：
 
+```
+   public class IOUtil {
+       public static void flow(InputStream input, OutputStream output) throws IOException {
+           byte[] data = new byte[4*1024];
+           int length = -1;
+           while ((length = input.read(data)) != -1) {
+              output.write(data,0,length); 
+           }
+           input.close();
+           output.close();
+       }
+   }
+```
 
-# Reader与Write
-
-
----
-# File类的使用
-`File`类中的方法主要分为以下四种:
-
-- 文件名相关方法
-
-    getAbsoluteFile() 
-    getAbsolutePath()
-    getName() 
-    getParent()
-    getParentFile()
-    getPath() 
-    renameTo(File dest)
+    `flow`方法并不知道数据的真正来源和目的地是什么，而是使用的抽象的`InputStream`和`OutputStream`来接收，首先定义一个大小为[4*1024]的字节数组，然后用write方法从0开始，每次读取data多的数据,并且将读到的数据返回给length，一直到返回的结果为-1为止，-1代表数据读到了结尾，没有更多的数据了。
+    
+    - 使用`flow`方法只要传入具体的实现即可，比如实现读取`D://test.txt`并将其写入到`E://demo.txt`,则可以这样：
+    
+    ```
+     IOUtil.flow(
+        new FileInputStream(new File("D://test.txt")),
+        new FileOutputStream(new File("E://demo.txt"))
+     );
+    
+    ```
+    
+    - 如果要使用http抓取一个网页上的内容，保存到本地的`D://test.txt`文件中，是可以这样：
+    
+    ```
+    URL url = new URL("http://www.herohuang.com");
+    IOUtil.flow(url.openStream(),new FileOutputStream("D://test.txt"));
+    ```
+    
+   -  如果要将文件输出至浏览器，则可以这样：
+    
+    ```
+        @RequestMapping("/test")
+        public void test(HttpServletRequest request, HttpServletResponse response) throws IOException {
+            response.setContentType("application/pdf");
+            InputStream is = request.getServletContext().getResourceAsStream("WEB-INF/test.pdf");
+            OutputStream os = response.getOutputStream();
+            byte[] data = new byte[1024];
+            int length = -1;
+            while ((length = is.read(data)) != -1) {
+                os.write(data,0,length);
+            }
+        }
+    ```
+    
+    通过以上案例可见，无论来源或目的地形式如何，只要想办法取得`InputStream`和`OutputStream`，接下来的操作都是调用`InputStream`和`OutputStream`的相关方法。
+    
+    
+  
     
 - 文件状态相关方法
 
@@ -161,11 +206,11 @@ listRoots()
 - http://www.2cto.com/kf/201312/262036.html
 - http://blog.csdn.net/yczz/article/details/38761237
 - http://freejavaguide.com/corejava-io.pfd
-- http://www.htbenet.cn/zaixianjiaocheng/java/748.html
 - https://segmentfault.com/a/1190000000740793
 - http://ifeve.com/java-io/
 - http://www.infoq.com/cn/articles/cf-java-i-o
 
+- http://www.htbenet.cn/zaixianjiaocheng/java/748.html
 
 序列化：将对象转换为连续的字节数据，这些数据在
 以后仍然可以被还原，且与操作系统无关。不能保存和读取transient和static类型的变量
