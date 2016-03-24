@@ -205,6 +205,15 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
     }
 ```
 
+`FileReader`读取字符时，不能自定义编码方式，而会使用JVM版本的默认的编码方式来处理字符，如果要自已设定编码，则可以使用`InputStreamReader`配合`FileInputStream`来代替`FileReader`：
+
+```
+ IOUtil.dump(
+    new InputStreamReader(new FileInputStream("test.txt"),"UTF-8"),
+    new OutputStreamWriter(new FileOutputStream("dest.txt"),"UTF-8"));
+```
+
+
 
 
 

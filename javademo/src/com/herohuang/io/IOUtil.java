@@ -24,5 +24,8 @@ public class IOUtil {
         IOUtil.dump(reader,writer);
         System.out.println(writer.toString());
 
+        IOUtil.dump(
+                new InputStreamReader(new FileInputStream("test.txt"),"UTF-8"),
+                new OutputStreamWriter(new FileOutputStream("dest.txt"),"UTF-8"));
     }
 }
