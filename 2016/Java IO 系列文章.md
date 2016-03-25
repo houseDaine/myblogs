@@ -9,7 +9,6 @@
 - Java I/O之InputStream与OutputStream
 - Java I/O之Reader与Writer
 - Java I/O之字节与字符的转化
-- Java I/O之字节缓冲流  
 - Java I/O之File类的使用
 - Java I/O之RandomAccessFile类的使用
 - Java I/O之对象的序列化和反序列化
@@ -94,7 +93,7 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
  - OutputStream中的基本方法，用于将字节写入输出流：
  
-     ```
+    ```
     write(int b); 
     write(byte[] b); 
     write(byte[] b, int off, int len) 
