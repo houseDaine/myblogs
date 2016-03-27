@@ -9,7 +9,6 @@
 - Java I/O之InputStream与OutputStream
 - Java I/O之Reader与Writer
 - Java I/O之字节与字符的转化
-- Java I/O之字节缓冲流  
 - Java I/O之File类的使用
 - Java I/O之RandomAccessFile类的使用
 - Java I/O之对象的序列化和反序列化
@@ -211,6 +210,36 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
  IOUtil.dump(
     new InputStreamReader(new FileInputStream("test.txt"),"UTF-8"),
     new OutputStreamWriter(new FileOutputStream("dest.txt"),"UTF-8"));
+```
+
+# 字节流和字符流的转换
+如上面的例子，字节流和字符流之间可相互转换，可使用指定charset解码方式，转换的桥梁主要靠下面两个类：
+
+- InputStreamReader：将输入的字节流转为字符流
+- OUtputStreamWriter：将输出的字符流转为字节流
+
+见下面的代码，
+```
+    public static void main(String[] args) throws IOException{
+        FileInputStream input = new FileInputStream("/home/acheron/test.txt");
+        InputStreamReader reader = new InputStreamReader(input,"UTF-8");
+
+      //以字节的方式读取，注意返回时的转换
+     /* int c;
+        while((c = reader.read()) != -1){
+            System.out.println((char)c);
+        }*/
+
+        /×× 以字符数组的方式读取发，放入buffer这个数组，
+        从第0个位置开始，最多放buffer.length个
+        返回的是读到的字符的个数 ×/
+        char[] buffer = new char[4 * 1024];
+        int d;
+        while ((d = reader.read(buffer,0,buffer.length)) != -1) {
+            String s = new String(buffer,0,d);
+            System.out.println(s);
+        }
+    }
 ```
 
 
