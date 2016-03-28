@@ -7,6 +7,9 @@ import java.io.*;
  */
 public class IOUtil {
 
+    public static void testSerializble(){
+        
+    }
 
     public static void dump(Reader reader ,Writer writer) throws IOException {
         char[] data = new char[4 * 1024];
