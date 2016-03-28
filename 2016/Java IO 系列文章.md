@@ -218,17 +218,15 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 - InputStreamReader：将输入的字节流转为字符流
 - OUtputStreamWriter：将输出的字符流转为字节流
 
+从字节到字符的解码过程，真正负责的类其实是`StreamDecoder`类，查看`InpuStreamReader`源码，可以发现它有一个`StreamDecoder`对象，在其`read`方法中，调用了`StreamDecoder`的read方法，
+
+
 见下面的代码，
 ```
     public static void main(String[] args) throws IOException{
         FileInputStream input = new FileInputStream("/home/acheron/test.txt");
+        //这里真正起作用的实际是StreamDecoder类
         InputStreamReader reader = new InputStreamReader(input,"UTF-8");
-
-      //以字节的方式读取，注意返回时的转换
-     /* int c;
-        while((c = reader.read()) != -1){
-            System.out.println((char)c);
-        }*/
 
         /×× 以字符数组的方式读取发，放入buffer这个数组，
         从第0个位置开始，最多放buffer.length个
@@ -236,6 +234,7 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
         char[] buffer = new char[4 * 1024];
         int d;
         while ((d = reader.read(buffer,0,buffer.length)) != -1) {
+            //
             String s = new String(buffer,0,d);
             System.out.println(s);
         }
