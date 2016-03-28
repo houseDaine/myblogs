@@ -241,7 +241,70 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
     }
 ```
 
+# 序列化与反序列化
 
+## 概念
+    - 序列化：将一个对象转换成字节序列的过程
+    - 反序列化：将一个字节序列重新构造成对象的过程
+
+## 序列化的作用
+    - 把对象的字节序列永久保存到硬盘上
+    - 在网络上转送对象的字节序列
+
+## 序列化反序列化的步骤
+    - 序列化：
+    1. 创建一个对象输出流`ObjectOutputStream`
+    2. 调用对象输出流的`writeObject()`方法写对象,将对象写入到输入流中
+    3. 关闭流
+    - 反序列化：
+    1. 创建一个对象输入流`ObjectInputStream`
+    2. 通过对象输入流的`readObject()`方法读取对象。
+    3. 关闭流
+
+## Serializable接口
+序列化接口Serializable接口没有方法或变量，仅用于标识可序列化的语义,Java类通过实现`Serializable`接口不启用序列化功能，如果对一个对象序列化时，该对象没有实现此接口，则会报`NotSerializableException`错误。
+
+```
+public class User implements Serializable {
+    private String name;
+    private Integer age;
+    private String sex;
+
+    ...
+}
+```
+
+## 序列化和反序列化案例
+
+如下代码，对`User`类进进序列化和反序列化操作
+```
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        //序列化User类,保存到test.txt文件中
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("D://test.txt"));
+        User user = new User("herohuang.com",20,"man");
+        out.writeObject(user);
+
+        //反序列化，读取test.txt，转为user对象
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("D://test.txt"));
+        User user1 = (User)in.readObject();
+        System.out.println(user1.toString());
+    }
+```
+
+## transient关键字
+`transient` 关键字的作用是控制变量的序列化，在变量声明前加上该关键字，可以阻止该变量被序列化到文件中，在被反序列化后，`transient`变量的值被设为初始值，如 int 型的是 0，对象型的是 null。可以参考`ArrayList`的源码，`elementData`就是`transient`修饰的。
+
+## 序列化ID
+虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的`序列化ID`是否一致
+
+```
+ private static final long serialVersionUID=1L
+```
+
+## readObject和WriteObject方法
+
+
+## Externalizable接口
 
 
 
