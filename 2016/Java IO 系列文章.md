@@ -377,6 +377,8 @@ public class User implements Externalizable {
 ```
 `Externalizable`继承于`Serializable`，当使用该接口时，序列化的细节需要由程序员去完成。并且，实现Externalizable接口的类必须要提供一个无参的构造器，且它的访问权限为public。 
 
+
+
 ---
 
 
