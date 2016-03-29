@@ -61,13 +61,6 @@
 
 - 处理流：处理流是高级的流，同节点流配合使用，一般用于对节点流或其它输入输出流进行封装，提供更丰富的输入输出功能。创建处理流时要将一个流对象作为参数来调用构造方法，且处理流可以嵌套使用。
 
-```
-InputStream in = new DataInputStream(
-        new BufferedInputStream(
-            new FileInputStream( “Source.txt” )
-    )
-)
-```
 
 ## Java IO类库的基本架构
 
