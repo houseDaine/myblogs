@@ -9,8 +9,7 @@
 - Java I/O之InputStream与OutputStream
 - Java I/O之Reader与Writer
 - Java I/O之字节与字符的转化
-- Java I/O之File类的使用
-- Java I/O之RandomAccessFile类的使用
+- Java I/O之File类和RandomAccessFile类
 - Java I/O之对象的序列化和反序列化
 - Java I/O之使用Apache IO库
 - Java I/O之设计模式的使用
@@ -244,35 +243,64 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 # 序列化与反序列化
 
 ## 概念
+
     - 序列化：将一个对象转换成字节序列的过程
     - 反序列化：将一个字节序列重新构造成对象的过程
 
 ## 序列化的作用
+
     - 把对象的字节序列永久保存到硬盘上
     - 在网络上转送对象的字节序列
 
 ## 序列化反序列化的步骤
+
     - 序列化：
     1. 创建一个对象输出流`ObjectOutputStream`
     2. 调用对象输出流的`writeObject()`方法写对象,将对象写入到输入流中
     3. 关闭流
+    
     - 反序列化：
     1. 创建一个对象输入流`ObjectInputStream`
     2. 通过对象输入流的`readObject()`方法读取对象。
     3. 关闭流
 
 ## Serializable接口
-序列化接口Serializable接口没有方法或变量，仅用于标识可序列化的语义,Java类通过实现`Serializable`接口不启用序列化功能，如果对一个对象序列化时，该对象没有实现此接口，则会报`NotSerializableException`错误。
-
+序列化接口Serializable接口没有方法或变量，仅用于标识可序列化的语义,Java类通过实现`Serializable`接口来启用序列化功能，如果对一个对象序列化时，该对象没有实现此接口，则会报`NotSerializableException`错误。
 ```
 public class User implements Serializable {
     private String name;
     private Integer age;
     private String sex;
 
+    @Override
+    public String toString() {
+        return name + "---" + age + "---" + sex;
+    }
     ...
 }
 ```
+
+为什么实现`Serializable`接口就可以序列化，查看序列化的接口`ObjectOutputStream`源码，其中有`writeObject0`方法，可见如果被写对象的类型是String，或数组，或Enum，或Serializable，那么就可以对该对象进行序列化，否则将抛出NotSerializableException.
+```
+ if (obj instanceof String) {
+        writeString((String) obj, unshared);
+    } else if (cl.isArray()) {
+        writeArray(obj, desc, unshared);
+    } else if (obj instanceof Enum) {
+        writeEnum((Enum<?>) obj, desc, unshared);
+    } else if (obj instanceof Serializable) {
+        writeOrdinaryObject(obj, desc, unshared);
+    } else {
+        if (extendedDebugInfo) {
+            throw new NotSerializableException(
+                cl.getName() + "\n" + debugInfoStack.toString());
+        } else {
+            throw new NotSerializableException(cl.getName());
+        }
+    }
+```
+    
+
 
 ## 序列化和反序列化案例
 
@@ -301,18 +329,58 @@ public class User implements Serializable {
  private static final long serialVersionUID=1L
 ```
 
-## readObject和WriteObject方法
+## readObject和writeObject方法
+如果一个变量被`transient`修饰，是否有其它方法让它可以被序列化，可以通过`readObject`和`writeObjet`方法来实现。比如在user类中加入这两个方法。
+```
+public class User implements Serializable {
+    private String name;
+    transient private Integer age;
+    private String sex;
 
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeInt(age);
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        age = in.readInt();
+    }
+    
+    ...
+}
+```
+在writeObject()方法中会先调用ObjectOutputStream中的defaultWriteObject()方法，该方法会执行默认的序列化机制，此时会忽略掉age字段。然后再调用writeInt()方法显示地将age字段写入到ObjectOutputStream中。必须注意地是，writeObject()与readObject()都是private方法，那么它们是如何被调用的呢?可见ObjectOutputStream中的writeSerialData方法，以及ObjectInputStream中的readSerialData方法,可知是使用反射。
 
 ## Externalizable接口
+JDK中提供了另一个序列化接口`Externalizable`，使用该接口之后，之前基于Serializable接口的序列化机制就将失效。并且心须重写`writeExternal`和`readExternal`方法。
+```
+public class User implements Externalizable {
 
+    ...
+    public User() {
+       System.out.println("none-arg constructor");
+    }
+        
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(name);
+        out.writeInt(age);
+    }
 
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        name = (String) in.readObject();
+        age = in.readInt();
+    }
+}
+```
+`Externalizable`继承于`Serializable`，当使用该接口时，序列化的细节需要由程序员去完成。并且，实现Externalizable接口的类必须要提供一个无参的构造器，且它的访问权限为public。 
 
 ---
 
----
 
----
+
 
 
 
