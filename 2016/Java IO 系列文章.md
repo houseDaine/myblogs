@@ -1,10 +1,10 @@
 # Java IO 系列文章
 
-标签（空格分隔）： java
-
 ---
 
-- Java I/O之基本概念
+# 本文目录
+
+- [Java I/O之基本概念](#basic)
 - Java I/O之I/O框架体系
 - Java I/O之InputStream与OutputStream
 - Java I/O之Reader与Writer
@@ -15,7 +15,7 @@
 - Java I/O之设计模式的使用
 
 ---
-# 概述
+ <h2 id="basic">概述</h2>
 
 ## 流
 在`Java API`中,流的概念在`JDK1.0`中就存在了。简单的来说,流是一组有顺序的,有起点和终点的字节序列,是一个连续的数据流。`java.io`包下根据数据传输特性将流抽象为各种类,方便直观的进行数据操作。
@@ -190,7 +190,7 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
     }
 ```
 
-如上，每次从`Reader`读入的数据,都会先置入`char`数组中。`Reader`的`read()`方法,每次会尝试读入`char` 数组长度的数据,并返回实际读入的字符数,只要不是-1,就表示读取到字符，然后使用`Writer`的`write()`方法来写入数据。
+如上，每次从`Reader`读入的数据,都会先置入`char`数组中?。`Reader`的`read()`方法,每次会尝试读入`char` 数组长度的数据,并返回实际读入的字符数,只要不是-1,就表示读取到字符，然后使用`Writer`的`write()`方法来写入数据。
 
 比如，用dump方法读取文档，转为字符串并打印出来，代码如下：、
 
@@ -220,7 +220,8 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 从字节到字符的解码过程，真正负责的类其实是`StreamDecoder`类，查看`InpuStreamReader`源码，可以发现它有一个`StreamDecoder`对象，在其`read`方法中，调用了`StreamDecoder`的read方法，
 
 
-见下面的代码，
+见下面的代码:
+
 ```
     public static void main(String[] args) throws IOException{
         FileInputStream input = new FileInputStream("/home/acheron/test.txt");
@@ -414,11 +415,11 @@ public class User implements Externalizable {
 
 - http://www.htbenet.cn/zaixianjiaocheng/java/748.html
 
-- 官网：http://commons.apache.org/proper/commons-io/
-- 资料：https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
-- 资料：http://www.07net01.com/2015/07/876032.html
+- 官网： http://commons.apache.org/proper/commons-io/
+- 资料： https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
+- 资料： http://www.07net01.com/2015/07/876032.html
 - iteye: http://ray-yui.iteye.com/blog/2023034
-
+- 
 
 ---
 
@@ -469,7 +470,6 @@ listFiles()
 listFiles(FileFilter filter) 
 listRoots()
 
-具体方法请参考[JDK文档](http://docs.oracle.com/javase/8/docs/api/).
 
 
 
