@@ -15,6 +15,7 @@
 - Java I/O之设计模式的使用
 
 ---
+
 # 概述
 
 ## 流
@@ -136,21 +137,22 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
    - 如果要将文件输出至浏览器，则可以这样：
     
     ```
-        @RequestMapping("/test")
-        public void test(HttpServletRequest request, HttpServletResponse response) throws IOException {
-            response.setContentType("application/pdf");
-            InputStream is = request.getServletContext().getResourceAsStream("WEB-INF/test.pdf");
-            OutputStream os = response.getOutputStream();
-            byte[] data = new byte[1024];
-            int length = -1;
-            while ((length = is.read(data)) != -1) {
-                os.write(data,0,length);
-            }
+    @RequestMapping("/test")
+    public void test(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/pdf");
+        InputStream is = request.getServletContext().getResourceAsStream("WEB-INF/test.pdf");
+        OutputStream os = response.getOutputStream();
+        byte[] data = new byte[1024];
+        int length = -1;
+        while ((length = is.read(data)) != -1) {
+            os.write(data,0,length);
         }
+    }
     ```
     
-    通过以上案例可见，无论来源或目的地形式如何，只要想办法取得`InputStream`和`OutputStream`，接下来的操作都是调用`InputStream`和`OutputStream`的相关方法。
+ 通过以上案例可见，无论来源或目的地形式如何，只要想办法取得`InputStream`和`OutputStream`，接下来的操作都是调用`InputStream`和`OutputStream`的相关方法。
     
+---
 
 # 字符流：Reader与Write
 在实际处理数据时，如果处理的是字符数据，使用`InputStream`和`OutputStream`就得对照编码表，在字符和字节之间进行转换，所以JAVA API提供了字符操作类，来简化了这种操作。
@@ -211,6 +213,8 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
     new OutputStreamWriter(new FileOutputStream("dest.txt"),"UTF-8"));
 ```
 
+---
+
 # 字节流和字符流的转换
 如上面的例子，字节流和字符流之间可相互转换，可使用指定charset解码方式，转换的桥梁主要靠下面两个类：
 
@@ -218,7 +222,6 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 - OUtputStreamWriter：将输出的字符流转为字节流
 
 从字节到字符的解码过程，真正负责的类其实是`StreamDecoder`类，查看`InpuStreamReader`源码，可以发现它有一个`StreamDecoder`对象，在其`read`方法中，调用了`StreamDecoder`的read方法，
-
 
 见下面的代码:
 
@@ -240,6 +243,31 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
         }
     }
 ```
+
+---
+
+# File和RandomAccessFile类
+
+`File`类中的方法主要分为以下四种:
+
+- 文件名相关方法
+
+getAbsoluteFile(),getAbsolutePath(),getName(),getParent(), getParentFile(), getPath() ,renameTo(File dest)
+    
+- 文件状态相关方法
+exists(),canExecute(), canRead(), canWrite() ,isFile(), isDirectory() ,isAbsolute()(UNIX/Linux中是否以/开头) ,isHidden() ,lastModified(), length()
+
+- 文件操作
+
+createNewFile(), createTempFile(String prefix, String suffix),delete(),
+deleteOnExit() , setExecutable(boolean executable) , setReadOnly()
+
+- 目录操作
+
+mkdir(), mkdirs() , list(), list(FilenameFilter filter) , listFiles(), listFiles(FileFilter filter) , listRoots()
+
+
+---
 
 # 序列化与反序列化
 
@@ -298,8 +326,6 @@ public class User implements Serializable {
         }
     }
 ```
-    
-
 
 ## 序列化和反序列化案例
 
@@ -400,81 +426,25 @@ public class User implements Externalizable {
 
 
 
-参考资料:
+# 参考资料:
 - 《深入分析Java Web技术内幕》许令波
 - 《Java编程思想》
 - 《Java核心技术卷2》
--  http://www.jikexueyuan.com/course/215_1.html
--  http://www.imooc.com/learn/123
+- http://www.imooc.com/learn/123
+- http://www.jikexueyuan.com/course/215_1.html
 - http://www.2cto.com/kf/201312/262036.html
 - http://blog.csdn.net/yczz/article/details/38761237
 - http://freejavaguide.com/corejava-io.pfd
 - https://segmentfault.com/a/1190000000740793
 - http://ifeve.com/java-io/
 - http://www.infoq.com/cn/articles/cf-java-i-o
-
 - http://www.htbenet.cn/zaixianjiaocheng/java/748.html
-
-- 官网： http://commons.apache.org/proper/commons-io/
-- 资料： https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
-- 资料： http://www.07net01.com/2015/07/876032.html
-- iteye: http://ray-yui.iteye.com/blog/2023034
-- 
-
----
-
-
-
-# File类的使用
-`File`类中的方法主要分为以下四种:
-
-- 文件名相关方法
-
-    getAbsoluteFile() 
-    getAbsolutePath()
-    getName() 
-    getParent()
-    getParentFile()
-    getPath() 
-    renameTo(File dest)
-    
-- 文件状态相关方法
-
-    exists()
-    canExecute()
-    canRead()
-    canWrite() 
-    isFile()
-    isDirectory() 
-    isAbsolute()(UNIX/Linux中是否以/开头) 
-    isHidden() 
-    lastModified()
-    length()
-
-- 文件操作
-
-createNewFile()
-createTempFile(String prefix, String suffix)
-delete()
-deleteOnExit() 
-setExecutable(boolean executable) 
-setReadOnly()
-
-- 目录操作
-
-mkdir() 
-mkdirs() 
-list()
-list(FilenameFilter filter) 
-listFiles()
-listFiles(FileFilter filter) 
-listRoots()
-
-
-
-
-
-
-
-
+- http://commons.apache.org/proper/commons-io/
+- https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
+- http://www.07net01.com/2015/07/876032.html
+- http://ray-yui.iteye.com/blog/2023034
+- http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html
+- http://www.importnew.com/17964.html
+- http://www.importnew.com/18024.html
+- https://www.ibm.com/developerworks/cn/java/j-lo-serial/
 
