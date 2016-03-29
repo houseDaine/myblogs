@@ -244,25 +244,23 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
 ## 概念
 
-    - 序列化：将一个对象转换成字节序列的过程
-    - 反序列化：将一个字节序列重新构造成对象的过程
+- 序列化：将一个对象转换成字节序列的过程
+- 反序列化：将一个字节序列重新构造成对象的过程
 
 ## 序列化的作用
 
-    - 把对象的字节序列永久保存到硬盘上
-    - 在网络上转送对象的字节序列
+- 把对象的字节序列永久保存到硬盘上
+- 在网络上转送对象的字节序列
 
 ## 序列化反序列化的步骤
-
-    - 序列化：
-    1. 创建一个对象输出流`ObjectOutputStream`
-    2. 调用对象输出流的`writeObject()`方法写对象,将对象写入到输入流中
-    3. 关闭流
-    
-    - 反序列化：
-    1. 创建一个对象输入流`ObjectInputStream`
-    2. 通过对象输入流的`readObject()`方法读取对象。
-    3. 关闭流
+- 序列化：
+1. 创建一个对象输出流`ObjectOutputStream`
+2. 调用对象输出流的`writeObject()`方法写对象,将对象写入到输入流中
+3. 关闭流
+- 反序列化：
+1. 创建一个对象输入流`ObjectInputStream`
+2. 通过对象输入流的`readObject()`方法读取对象。
+3. 关闭流
 
 ## Serializable接口
 序列化接口Serializable接口没有方法或变量，仅用于标识可序列化的语义,Java类通过实现`Serializable`接口来启用序列化功能，如果对一个对象序列化时，该对象没有实现此接口，则会报`NotSerializableException`错误。
@@ -377,10 +375,25 @@ public class User implements Externalizable {
 ```
 `Externalizable`继承于`Serializable`，当使用该接口时，序列化的细节需要由程序员去完成。并且，实现Externalizable接口的类必须要提供一个无参的构造器，且它的访问权限为public。 
 
-
-
 ---
 
+# Apache IO
+
+`Apache Commons IO`是Apache基金会创建并维护的Java函数库,它提供了许多类使得开发者的常见任务变得简单，同时减少重复代码。`Apache Commons IO`主要包括以下六个部分：
+
+- 工具类——使用静态方法执行共同任务
+- 输入——用于InputStream和Reader实现
+- 输出——用于OutputStream和Writer实现
+- 过滤器——各种文件过滤器实现
+- 比较器——各种文件的Java.util.Comparator实现
+- 文件监听器——监听文件系统事件的组件
+
+具体使用可以参考以下资料：
+
+- 官网：http://commons.apache.org/proper/commons-io/
+- 资料：https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
+- 资料：http://www.07net01.com/2015/07/876032.html
+- iteye: http://ray-yui.iteye.com/blog/2023034
 
 
 
@@ -401,8 +414,13 @@ public class User implements Externalizable {
 
 - http://www.htbenet.cn/zaixianjiaocheng/java/748.html
 
-序列化：将对象转换为连续的字节数据，这些数据在
-以后仍然可以被还原，且与操作系统无关。不能保存和读取transient和static类型的变量
+- 官网：http://commons.apache.org/proper/commons-io/
+- 资料：https://www.javacodegeeks.com/2014/10/apache-commons-io-tutorial.html
+- 资料：http://www.07net01.com/2015/07/876032.html
+- iteye: http://ray-yui.iteye.com/blog/2023034
+
+
+---
 
 
 
