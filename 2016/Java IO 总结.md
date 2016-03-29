@@ -245,19 +245,20 @@ Java中的流主要分为两个层次结构，一个层次用于处理字节输�
 
 - 文件名相关方法
 
-getAbsoluteFile(),getAbsolutePath(),getName(),getParent(), getParentFile(), getPath() ,renameTo(File dest)
+    getAbsoluteFile(),getAbsolutePath(),getName(),getParent(), getParentFile(), getPath() ,renameTo(File dest)
     
 - 文件状态相关方法
-exists(),canExecute(), canRead(), canWrite() ,isFile(), isDirectory() ,isAbsolute()(UNIX/Linux中是否以/开头) ,isHidden() ,lastModified(), length()
+
+    exists(),canExecute(), canRead(), canWrite() ,isFile(), isDirectory() ,isAbsolute()(UNIX/Linux中是否以/开头) ,isHidden() ,lastModified(), length()
 
 - 文件操作
 
-createNewFile(), createTempFile(String prefix, String suffix),delete(),
+    createNewFile(), createTempFile(String prefix, String suffix),delete(),
 deleteOnExit() , setExecutable(boolean executable) , setReadOnly()
 
 - 目录操作
 
-mkdir(), mkdirs() , list(), list(FilenameFilter filter) , listFiles(), listFiles(FileFilter filter) , listRoots()
+    mkdir(), mkdirs() , list(), list(FilenameFilter filter) , listFiles(), listFiles(FileFilter filter) , listRoots()
 
 
 ---
