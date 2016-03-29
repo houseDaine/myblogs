@@ -1,10 +1,10 @@
-# Java IO 系列文章
+# Java IO 总结
 
 ---
 
 # 本文目录
 
-- [Java I/O之基本概念](#basic)
+- Java I/O之基本概念
 - Java I/O之I/O框架体系
 - Java I/O之InputStream与OutputStream
 - Java I/O之Reader与Writer
@@ -15,7 +15,7 @@
 - Java I/O之设计模式的使用
 
 ---
- <h2 id="basic">概述</h2>
+# 概述
 
 ## 流
 在`Java API`中,流的概念在`JDK1.0`中就存在了。简单的来说,流是一组有顺序的,有起点和终点的字节序列,是一个连续的数据流。`java.io`包下根据数据传输特性将流抽象为各种类,方便直观的进行数据操作。
