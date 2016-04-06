@@ -1,0 +1,66 @@
+---
+title: 持续集成：Jenkins+maven+svn+IntelliJ IDEA
+date: 2016-04-01 10:27:55
+tags:
+---
+
+# 持续集成：Jenkins+maven+svn+IntelliJ IDEA
+
+# 本文初衷
+
+# 持续集成是什么
+
+- 维基百科：[https://en.wikipedia.org/wiki/Continuous_integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- 百度百科：[http://baike.baidu.com/view/5253255.htm](http://baike.baidu.com/view/5253255.htm)
+- 网络文章：[http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html](http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html)
+- 网络文章：[https://www.zhihu.com/question/23444990](https://www.zhihu.com/question/23444990)
+- 提出者 **Grady Booch**：[https://en.wikipedia.org/wiki/Grady_Booch](https://en.wikipedia.org/wiki/Grady_Booch)
+- 相关书籍：[《持续集成:软件质量改进和风险降低之道》](https://book.douban.com/subject/2580604/),[《持续交付：发布可靠软件的系统方法》](https://book.douban.com/subject/6862062/)
+
+# 持续集成工具有哪些
+    
+- **Jenkins**:[https://jenkins.io/](https://jenkins.io/)
+- Hudson:[http://www.eclipse.org/hudson/](http://www.eclipse.org/hudson/)
+- Travis CI:[https://travis-ci.org](https://travis-ci.org)
+- Strider:[https://github.com/Strider-CD/strider](https://github.com/Strider-CD/strider)
+- Codeship:[https://codeship.com/](https://codeship.com/)
+- Bamboo:[https://www.atlassian.com/software/bamboo](https://www.atlassian.com/software/bamboo)
+- TeamCity:[https://www.jetbrains.com/teamcity/](https://www.jetbrains.com/teamcity/)
+- CruiseControl:[http://cruisecontrol.sourceforge.net/](http://cruisecontrol.sourceforge.net/)
+- **其它工具**：[http://www.oschina.net/project/tag/344/ci](http://www.oschina.net/project/tag/344/ci)
+- **工具对比**：[http://cristal.iteye.com/blog/482658](http://cristal.iteye.com/blog/482658) 
+
+# 所使用到的工具
+
+本文主要演示在Windows环境下，以`Jenkins`来搭建Java开发持续集成环境，用到的其它工具有以下：
+
+- Maven：[http://maven.apache.org/](http://maven.apache.org/)
+- svn:[http://subversion.apache.org/](http://subversion.apache.org/)
+- IntelliJ IDEA:[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+# Jenkins入门
+
+- Jenkins简介：[https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
+- Jenkins使用：[https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
+
+
+
+
+- [http://blog.csdn.net/leijiantian/article/details/7916483](http://blog.csdn.net/leijiantian/article/details/7916483)
+
+
+http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6
+
+
+##  
+
+
+#
+本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
+文章作者:Acheron：heorhang.com
+发布时间:2016年03月23日 - 20时48分
+最后更新:2016年03月23日 - 20时52分
+原始链接: 
+许可协议: "署名-非商用-相同方式共享 3.0" 转载请保留原文链接及作者。
+
+
