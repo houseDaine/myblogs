@@ -32,7 +32,7 @@ tags:
 
 # 所使用到的工具
 
-本文主要演示在Windows环境下，以`Jenkins`来搭建Java开发持续集成环境，用到的其它工具有以下：
+本文主要演示在Windows环境下，以`Jenkins`来搭建Java开发持续集成环境，除`Jenkins`以外，用到的其它工具有以下：
 
 - Maven：[http://maven.apache.org/](http://maven.apache.org/)
 - svn:[http://subversion.apache.org/](http://subversion.apache.org/)
@@ -43,13 +43,34 @@ tags:
 - Jenkins简介：[https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 - Jenkins使用：[https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
 
-
-
-
 - [http://blog.csdn.net/leijiantian/article/details/7916483](http://blog.csdn.net/leijiantian/article/details/7916483)
 
-
 http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6
+
+
+## 下载和运行
+访问`[Jenkins](https://jenkins.io/)`官网，下载对应系统的安装包，我用得是windows10,下载后为一个war包： `jenkins.war`,要启动Jenkins，主要有两种方式，一种是在cmd中运行以下命令：
+
+```
+java -jar jenkins.war
+```
+
+另一种是用web服务器来启动,将`jenkins.war`包放于tomcat的webapps目录下,启动tomcat即可。
+
+我用tomcat来启动，启动成功后，打开浏览器访问`http://localhost:8080/jenkins`即可进入jenkins配置页面，如下图：
+
+![Jenkins初始页](../images/jenkins-start-page.png)
+
+Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件夹，用于存放Jenkins的任务，插件，配置等信息。
+
+
+## 创建第一个任务
+在Jenkins中创建第一个任务这前，先在IntelliJ IDEA中建一个Maven项目:`helloJenkins`，并将上传至svn中:`https://Acheron/svn/myProjects/helloJenkins`。
+
+![helloJenkins项目](../images/helloJenkins-project.png)
+
+![创建item](../images/create-a-item.png)
+
 
 
 ##  
