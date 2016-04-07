@@ -75,20 +75,19 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 ## 进入配置界面
 进入当前项目配置的详细页面，假设现在要执行的构建动作是使得`helloJenkins`项目定时期自动打成war包，则需要在这个页面的以下几个地方作配置：
 
-### - 高级项目选项
-
+### 1. 高级项目选项
 高级项目选项，选择`使用自定义的工作空间`，目录填写当前项目所在的本地目录，显示名称可以不填。
 ![高级项目选项](../images/helloJenkins_gaojixiangmuxuanxiang.png) 
 
-### 源码管理
+### 2. 源码管理
 我用的是svn，所以这里选择`Subversion`，`Repository URL`填写项目的svn地址，其它默认。
 ![svn地址](../images/helloJenkins_svn.png)
 
-### 构建触发器
+### 3. 构建触发器
 构建触发器有三种方式，我选择`Build periodically`表示定时地触发构建，`日程表`时填写定时的规则，使用`crontab`表达式，为了方便测试，这里我填`* * * * *`，注意中间有空格，表示每隔一分种就构建一次。
 ![构建触发器](../images/helloJenkins_biuld.png)
 
-### 构建
+### 4. 构建
 构建的方式，因为我用得是`maven`，这里选择`Invoke top level Maven targets`,`Goals`填写maven命令：`clean package`打包项目。
 ![构建](../images/helloJenkins_maven.png)
 
