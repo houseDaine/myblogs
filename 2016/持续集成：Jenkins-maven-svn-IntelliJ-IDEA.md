@@ -58,26 +58,33 @@ java -jar jenkins.war
 另一种是用web服务器来启动,将`jenkins.war`包放于tomcat的webapps目录下,启动tomcat即可。
 
 我用tomcat来启动，启动成功后，打开浏览器访问`http://localhost:8080/jenkins`即可进入jenkins配置页面，如下图：
-
 ![Jenkins初始页](../images/jenkins-start-page.png)
 
 Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件夹，用于存放Jenkins的任务，插件，配置等信息。
 
-
 ## 创建第一个任务
 在Jenkins中创建第一个任务这前，先在IntelliJ IDEA中建一个Maven项目:`helloJenkins`，并将上传至svn中:`https://Acheron/svn/myProjects/helloJenkins`。
-
 ![helloJenkins项目](../images/helloJenkins-project.png)
 
-
+接着点击`创建一个新任务`，进入如下所示页面，`Item名称`随便取，这里我取为`helloJenkins`，下面选择第一个选项，构建一个自由风格的软件项目。
 ![创建item](../images/create-a-item.png)
 
+## 进入配置界面
+进入当前项目配置的详细页面，假设现在要执行的构建动作是使得`helloJenkins`项目定时期自动打成war包，则需要在这个页面的以下几个地方作配置：
 
+- 高级项目选项
+!(高级项目选项)[../images/helloJenkins_gaojixiangmuxuanxiang.png] 
 
-##  
-
+- 源码管理
+!(svn地址)[../images/helloJenkins_svn.png]
                                                  j
-#
+- 构建触发器
+!(构建触发器)[../images/helloJenkins_biuld.png]
+
+- 构建
+!(构建)[../images/helloJenkins_maven.png]
+
+
 ---
 > 本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
 文章作者:Acheron：heorhang.com
