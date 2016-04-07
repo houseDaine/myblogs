@@ -52,7 +52,7 @@ tags:
 - [http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6](http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6)
 
 ## 下载和运行
-访问`[Jenkins](https://jenkins.io/)`官网，下载对应系统的安装包，我用得是windows10,下载后为一个war包： `jenkins.war`,要启动Jenkins，主要有两种方式，一种是在cmd中运行以下命令：
+访问[Jenkins](https://jenkins.io/)官网，下载对应系统的安装包，我用得是windows10,下载后为一个war包： `jenkins.war`,要启动Jenkins，主要有两种方式，一种是在cmd中运行以下命令：
 
 ```
 java -jar jenkins.war
