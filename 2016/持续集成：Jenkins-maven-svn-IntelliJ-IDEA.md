@@ -75,7 +75,8 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 ## 进入配置界面
 进入当前项目配置的详细页面，假设现在要执行的构建动作是使得`helloJenkins`项目定时期自动打成war包，则需要在这个页面的以下几个地方作配置：
 
-### 高级项目选项
+### - 高级项目选项
+
 高级项目选项，选择`使用自定义的工作空间`，目录填写当前项目所在的本地目录，显示名称可以不填。
 ![高级项目选项](../images/helloJenkins_gaojixiangmuxuanxiang.png) 
 
