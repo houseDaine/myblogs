@@ -84,7 +84,7 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 ![svn地址](../images/helloJenkins_svn.png)
 
 ### 3. 构建触发器
-构建触发器有三种方式，我选择`Build periodically`表示定时地触发构建，`日程表`时填写定时的规则，使用`crontab`表达式，为了方便测试，这里我填`* * * * *`，注意中间有空格，表示每隔一分种就构建一次。
+构建触发器有三种方式，我选择`Build periodically`表示定时地触发构建，`日程表`填写定时的规则，使用`crontab`表达式，为了方便测试，这里我填`* * * * *`，注意中间有空格，表示每隔一分种就构建一次。
 ![构建触发器](../images/helloJenkins_biuld.png)
 
 ### 4. 构建
