@@ -7,6 +7,8 @@ tags:
 # 持续集成：Jenkins+maven+svn+IntelliJ IDEA
 
 # 本文初衷
+- 记录我在本地机上搭建持续集成的过程
+- 了解Jenkins的基本使用
 
 # 持续集成是什么
 
@@ -34,19 +36,20 @@ tags:
 
 本文主要演示在Windows环境下，以`Jenkins`来搭建Java开发持续集成环境，除`Jenkins`以外，用到的其它工具有以下：
 
+- 系统：Windows10
 - Maven：[http://maven.apache.org/](http://maven.apache.org/)
 - svn:[http://subversion.apache.org/](http://subversion.apache.org/)
 - IntelliJ IDEA:[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
 
-# Jenkins入门
+# Jenkins简单入门
 
+官网有详细的文档：
 - Jenkins简介：[https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 - Jenkins使用：[https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
 
+网络好文：
 - [http://blog.csdn.net/leijiantian/article/details/7916483](http://blog.csdn.net/leijiantian/article/details/7916483)
-
-http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6
-
+- [http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6](http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6)
 
 ## 下载和运行
 访问`[Jenkins](https://jenkins.io/)`官网，下载对应系统的安装包，我用得是windows10,下载后为一个war包： `jenkins.war`,要启动Jenkins，主要有两种方式，一种是在cmd中运行以下命令：
@@ -63,7 +66,7 @@ java -jar jenkins.war
 Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件夹，用于存放Jenkins的任务，插件，配置等信息。
 
 ## 创建第一个任务
-在Jenkins中创建第一个任务这前，先在IntelliJ IDEA中建一个Maven项目:`helloJenkins`，并将上传至svn中:`https://Acheron/svn/myProjects/helloJenkins`。
+在Jenkins中创建第一个任务这前，先在IntelliJ IDEA中建一个Maven项目:`helloJenkins`，并将上传至svn中:` https://herohuang/svn/myProjects/helloJenkins/trunk`。
 ![helloJenkins项目](../images/helloJenkins-project.png)
 
 接着点击`创建一个新任务`，进入如下所示页面，`Item名称`随便取，这里我取为`helloJenkins`，下面选择第一个选项，构建一个自由风格的软件项目。
@@ -73,24 +76,29 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 进入当前项目配置的详细页面，假设现在要执行的构建动作是使得`helloJenkins`项目定时期自动打成war包，则需要在这个页面的以下几个地方作配置：
 
 ### 高级项目选项
+高级项目选项，选择`使用自定义的工作空间`，目录填写当前项目所在的本地目录，显示名称可以不填。
 ![高级项目选项](../images/helloJenkins_gaojixiangmuxuanxiang.png) 
 
 ### 源码管理
+我用的是svn，所以这里选择`Subversion`，`Repository URL`填写项目的svn地址，其它默认。
 ![svn地址](../images/helloJenkins_svn.png)
 
 ### 构建触发器
+构建触发器有三种方式，我选择`Build periodically`表示定时地触发构建，`日程表`时填写定时的规则，使用`crontab`表达式，为了方便测试，这里我填`* * * * *`，注意中间有空格，表示每隔一分种就构建一次。
 ![构建触发器](../images/helloJenkins_biuld.png)
 
 ### 构建
+构建的方式，因为我用得是`maven`，这里选择`Invoke top level Maven targets`,`Goals`填写maven命令：`clean package`打包项目。
 ![构建](../images/helloJenkins_maven.png)
 
 
 ---
 >
+---
 本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
 文章作者:Acheron：heorhang.com
 发布时间:2016年03月23日 - 20时48分
 最后更新:2016年03月23日 - 20时52分 
 许可协议: "署名-非商用-相同方式共享 3.0" 转载请保留原文链接及作者。
-
+---
 
