@@ -69,15 +69,17 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 
 ![helloJenkins项目](../images/helloJenkins-project.png)
 
+
 ![创建item](../images/create-a-item.png)
 
 
 
 ##  
 
-
+                                                 j
 #
-本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
+---
+> 本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
 文章作者:Acheron：heorhang.com
 发布时间:2016年03月23日 - 20时48分
 最后更新:2016年03月23日 - 20时52分
