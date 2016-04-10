@@ -4,11 +4,12 @@ date: 2016-04-01 10:27:55
 tags:
 ---
 
-# 持续集成：Jenkins+maven+svn+IntelliJ IDEA
+# 持续集成：Jenkins+maven+svn+IntelliJ IDEA                                   
 
 # 本文初衷
 - 记录我在本地机上搭建持续集成的过程
 - 了解Jenkins的基本使用
+- 工作过的公司都没有使用持续集成，所以我没有这方面的使用经验。
 
 # 持续集成是什么
 
@@ -37,6 +38,7 @@ tags:
 本文主要演示在Windows环境下，以`Jenkins`来搭建Java开发持续集成环境，除`Jenkins`以外，用到的其它工具有以下：
 
 - 系统：Windows10
+- tomcat:[http://tomcat.apache.org/](http://tomcat.apache.org/)
 - Maven：[http://maven.apache.org/](http://maven.apache.org/)
 - svn:[http://subversion.apache.org/](http://subversion.apache.org/)
 - IntelliJ IDEA:[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
@@ -51,7 +53,7 @@ tags:
 - [http://blog.csdn.net/leijiantian/article/details/7916483](http://blog.csdn.net/leijiantian/article/details/7916483)
 - [http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6](http://www.cnblogs.com/zz0412/p/jenkins02.html#_Jenkins%E6%8F%92%E4%BB%B6)
 
-## 下载和运行
+## 一. 下载和运行
 访问[Jenkins](https://jenkins.io/)官网，下载对应系统的安装包，我用得是windows10,下载后为一个war包： `jenkins.war`,要启动Jenkins，主要有两种方式，一种是在cmd中运行以下命令：
 
 ```
@@ -65,14 +67,14 @@ java -jar jenkins.war
 
 Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件夹，用于存放Jenkins的任务，插件，配置等信息。
 
-## 创建第一个任务
+## 二. 创建第一个任务
 在Jenkins中创建第一个任务这前，先在IntelliJ IDEA中建一个Maven项目:`helloJenkins`，并将上传至svn中:` https://herohuang/svn/myProjects/helloJenkins/trunk`。
 ![helloJenkins项目](../images/helloJenkins-project.png)
 
 接着点击`创建一个新任务`，进入如下所示页面，`Item名称`随便取，这里我取为`helloJenkins`，下面选择第一个选项，构建一个自由风格的软件项目。
 ![创建item](../images/create-a-item.png)
 
-## 进入配置界面
+## 三. 进入配置界面
 进入当前项目配置的详细页面，假设现在要执行的构建动作是使得`helloJenkins`项目定时期自动打成war包，则需要在这个页面的以下几个地方作配置：
 
 ### 1. 高级项目选项
@@ -91,6 +93,13 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 构建的方式，因为我用得是`maven`，这里选择`Invoke top level Maven targets`,`Goals`填写maven命令：`clean package`打包项目。
 ![构建](../images/helloJenkins_maven.png)
 
+### 5. 查看构建结果
+根据上面设置的规则，每隔一分种就会自动构建一次，在左侧栏下的`Build History`面板可以看到构建历史，或则点击立即构建来查看结果。
+![构建历史](../images/helloJenkins_buildhistory.png)
+
+点击某个构建版本，进入可查看详细的构建结果
+![控制台输出](../images/helloJenkins_consoleoutput.png)
+如果构建成功，则在项目目录下会发现多出一个target目录(编译目录设为此目录),其中会有maven`clean package`命令生成的war包。
 
 ---
 >
