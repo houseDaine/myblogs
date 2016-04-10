@@ -103,9 +103,10 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 
 ---
 >
+```
 本文标题:持续集成：Jenkins+maven+svn+IntelliJ IDEA
-文章作者:Acheron：heorhang.com
+文章作者:[Acheron](http://www.herohuang.com)
 发布时间:2016年03月23日 - 20时48分
 最后更新:2016年03月23日 - 20时52分 
 许可协议: "署名-非商用-相同方式共享 3.0" 转载请保留原文链接及作者。
-
+```
