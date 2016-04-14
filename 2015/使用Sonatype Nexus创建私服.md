@@ -1,4 +1,4 @@
-﻿
+
 # 使用Sonatype Nexus创建私服
  
 ---
@@ -43,6 +43,8 @@ Nexus的默认端口是8081，可在`nexus-2.8.0-05\conf\nexus.properties`文件
 clean compile -U               更新
 clean deploy                   部署
 clean package                  打包
+
+clean install -D maven.test.skip=true
 ```
 
 
