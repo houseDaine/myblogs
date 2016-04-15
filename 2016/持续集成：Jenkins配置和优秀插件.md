@@ -5,7 +5,7 @@
 
 https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins
 
- 	主目录	C:\Users\Acheron\.jenkins	Help for feature: 主目录
+主目录	C:\Users\Acheron\.jenkins	Help for feature: 主目录
 		
 	
 Jenkins储存所有的数据文件在这个目录下. 你可以通过以下几种方式更改：
