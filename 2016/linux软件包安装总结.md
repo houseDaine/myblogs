@@ -114,15 +114,24 @@ rpm2cpio 包全名 | cpio -idv .文件绝对路径
 
 
 ### 2.光盘yum源搭建：
-1.挂载光盘
-  建立挂载点：mkdir /mnt/cdrom
-  挂载光盘：mount /dev/chrom /mnt/cdrom
-2、使网络yum源失效
-  进入yum源目录：cd /etc/yum.repos.d/
-  修改yum源文件后缀名，使其失效：
-  mv CentOS-Base.repo CentOS-Base.Repo.bak
-3、使光盘yam源生效：
-  vim CentOS-Media.repo
+- 1.挂载光盘
+
+```
+建立挂载点：mkdir /mnt/cdrom
+挂载光盘：mount /dev/chrom /mnt/cdrom
+```
+- 2、使网络yum源失效
+
+```
+进入yum源目录：cd /etc/yum.repos.d/
+修改yum源文件后缀名，使其失效：
+mv CentOS-Base.repo CentOS-Base.Repo.bak
+```
+- 3、使光盘yam源生效：
+
+```
+vim CentOS-Media.repo
+```
 
 ### 3.yum命令
 
@@ -176,8 +185,8 @@ make install 编译安装
 参考inmp](http://www.inmp.org)
 
 一键安装包，实际上还是安装的源码包和RPM包，只是把安装过程写成了脚本，便于安装：
-  优点：简单，快捷、方便
-  缺点：不能定义安装软件的版本, 不能定义需要的软件功能, 源码包的优势丧失了
+- 优点：简单，快捷、方便
+- 缺点：不能定义安装软件的版本, 不能定义需要的软件功能, 源码包的优势丧失了
 	
 	
 ## 其它命令	
