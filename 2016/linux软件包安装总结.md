@@ -102,15 +102,15 @@ rpm2cpio 包全名 | cpio -idv .文件绝对路径
 ## 三、yum在线安装
 
 ### 1. yum源文件
-- 1、yum的优点：将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）
-- 2、redhat的yum在线安装需要付费，centOS不需要。
-- 3、在【/etc/yum.repos.d/】目录中，默认有4个yum源文件，其中【CentOS-Base.repo】是基本yum源文件，如果能上网，那它是默认生效的，而其他的都是默认不生效的。
-- 4、[base]：名字可以随便起。
-- 5、name：名字也是随便起。
-- 6、mirrorlist和baseurl一个是主站点，一个是辅助站点，这两个有一个就行。可以找一个163或其他yum源更换。
-- 7、enabled：默认最后一个容器不生效，其他容器都生效。
-- 8、gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。
-- 9、gpgkey：默认系统安装后，在目录【/etc/pki/rpm-gpg】下都会存在数字证书。注：前面的【file://】表示文件协议，后面的【/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6】是数字证书的位置。
+- yum的优点：将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题。（rpm缺点：安装过程中，rpm包依赖性太强）
+- redhat的yum在线安装需要付费，centOS不需要。
+- 在【/etc/yum.repos.d/】目录中，默认有4个yum源文件，其中【CentOS-Base.repo】是基本yum源文件，如果能上网，那它是默认生效的，而其他的都是默认不生效的。
+- [base]：名字可以随便起。
+- name：名字也是随便起。
+- mirrorlist和baseurl一个是主站点，一个是辅助站点，这两个有一个就行。可以找一个163或其他yum源更换。
+- enabled：默认最后一个容器不生效，其他容器都生效。
+- gpgcheck：一般都要开启，开启后安装时会验证rpm包是否是官方的，以保证系统安全。
+- gpgkey：默认系统安装后，在目录【/etc/pki/rpm-gpg】下都会存在数字证书。注：前面的【file://】表示文件协议，后面的【/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6】是数字证书的位置。
 
 
 ### 2.光盘yum源搭建：
