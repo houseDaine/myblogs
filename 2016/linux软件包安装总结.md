@@ -182,7 +182,7 @@ make install 编译安装
 
 ## 脚本安装
 
-参考inmp](http://www.inmp.org)
+参考[inmp](http://www.inmp.org)
 
 一键安装包，实际上还是安装的源码包和RPM包，只是把安装过程写成了脚本，便于安装：
 - 优点：简单，快捷、方便
