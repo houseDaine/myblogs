@@ -9,7 +9,7 @@
     注意： 要使用winsw，电脑上必须已经安装`.NET framework`
 
 ### 下载
-下载**winsw**:**:http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/，当前最新版本是`1.19`，下载后得到：`winsw-1.19-bin.exe`
+下载**winsw**:http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/，当前最新版本是`1.19`，下载后得到：`winsw-1.19-bin.exe`
 
 ### 使用
 - 1.为了方便，将打包的项目jar和winsw放在同一目录，我这里放在D盘
