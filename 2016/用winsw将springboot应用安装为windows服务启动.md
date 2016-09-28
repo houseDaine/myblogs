@@ -8,8 +8,11 @@
 
     注意： 要使用winsw，电脑上必须已经安装`.NET framework`
 
-### [下载](http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/)
-点击上面的下载地址，下载`winsw`，当前最新版本是`1.19`，
+### 下载
+下载[winsw](http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/):http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/，当前最新版本是`1.19`，下装后得到：`winsw-1.19-bin.exe`
+
+## 使用
+
 
 
 
