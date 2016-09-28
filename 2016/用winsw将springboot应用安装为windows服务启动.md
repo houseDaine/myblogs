@@ -15,9 +15,6 @@
 
 
 
-
-https://github.com/kohsuke/winsw
-
 https://github.com/kohsuke/winsw
 
 
