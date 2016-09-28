@@ -9,3 +9,16 @@ http://docs.spring.io/spring-boot/docs/1.4.1.BUILD-SNAPSHOT/reference/htmlsingle
 https://github.com/kohsuke/winsw
 
 https://github.com/kohsuke/winsw
+
+
+```
+<service>
+  <id>myapp</id>
+  <name>myapp</name>
+  <description>This service runs myapp project.</description>
+  <executable>java</executable>
+  <arguments>-jar "myapp.jar" --server.port=8080</arguments>
+  <logmode>rotate</logmode>
+</service>
+
+```
