@@ -11,7 +11,7 @@
 ### 下载
 下载**winsw**:**:http://repo.jenkins-ci.org/releases/com/sun/winsw/winsw/，当前最新版本是`1.19`，下载后得到：`winsw-1.19-bin.exe`
 
-## 使用
+### 使用
 - 1.为了方便，将打包的项目jar和winsw放在同一目录，我这里放在D盘
 - 2.将`winsw-1.19-bin.exe`重命名为和`myapp.jar`同名：`myapp.exe`
 - 3.在当前目录下新建一个xml文件：`myapp.xml`,内容如下：
@@ -39,7 +39,14 @@
   ```
   myapp.exe install
   ```
+- 5.运行上面的命令后，在windows的服务里面能看到名为`myapp`的服务，到此安装成功。
+- 6.除了`install`命令外，还有其它命令：
 
+ - uninstall：删除服务
+ - start：启动服务
+ - stop：停止服务
+ - restart：重启服务
+ - status：输出当前服务的状态
 
 
 
