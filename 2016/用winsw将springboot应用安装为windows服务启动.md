@@ -22,11 +22,26 @@
     <name>myapp</name>
     <description>This service runs myapp project.</description>
     <executable>java</executable>
-    <arguments>-jar "myapp.jar" --server.port=8080</arguments>
+    <arguments>-jar "myapp.jar"</arguments>
     <logmode>rotate</logmode>
   </service>
   ```
+ 相关参数说明如下：
+ - id:id是安装成windows服务后的服务名，id必须是唯一的。
+ - name：name是服务的简写名字，name也必须是唯一的，这里我设为和id相同。
+ - description:服务的文字说明。
+ - executable:执行的命令，因为启动springboot应用的命令是`java -jar myapp.jar`,所以这里写java，如果java没有安装到系统path里，则这里必须全路径。
+ - arguments：命令执行参数， 如果端口号要在这里设置，可以在后面添上：`--server.port=8080`
+ - 当然还有其它属性，请参考官网上的[说明](https://github.com/kohsuke/winsw)。
+
+- 4.运行以下命令，将应用注册为服务：
+  
+  ```
+  myapp.exe install
+  ```
 
 
-https://github.com/kohsuke/winsw
+
+
+
 
