@@ -113,7 +113,7 @@ Jenkins启动成功后，在`C:\Users\username\`下会有一个`.jenkins`文件�
 
 http://jdonee.iteye.com/blog/515424
 
-脚本配置：新建如下脚本：jenkins-choice-start.sh
+脚本配置：新建如下脚本：jenkins-doctor.sh
 ```
 #!/bin/sh 
 APP_PARAMS="choice-doctor"
@@ -133,5 +133,7 @@ nohup java -jar choice-doctor-consumer/target/choice-doctor-consumer-0.0.1-SNAPS
 在jenkins时构建时Execute shell运行：
 ```
 cd /home/ichoice/workspace/
-./jenkins-choice-start.sh
+./jenkins-doctor.sh
 ```
+
+如果要以端口号的方式啥进程，脚本见jenkins-doctor-port.sh
