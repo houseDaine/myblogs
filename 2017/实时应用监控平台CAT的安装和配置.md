@@ -41,7 +41,7 @@ CAT是一个Java语言编写的实时监控系统，能够跟各种流行的中�
   clean install -Dmaven.test.skip=true
   ```
 
-  ​      此处如果编译不成功，不能下载相关jar包，则可以手动下载，包在cat的`mvn-repo`分支下(https://github.com/dianping/cat/tree/mvn-repo) ,下载后拷贝到本地的maven仓库下	
+此处如果编译不成功，不能下载相关jar包，则可以手动下载，包在cat的`mvn-repo`分支下(https://github.com/dianping/cat/tree/mvn-repo) ,下载后拷贝到本地的maven仓库下
 
   ```
   git checkout mvn-repo
@@ -60,8 +60,6 @@ CAT是一个Java语言编写的实时监控系统，能够跟各种流行的中�
   ```
   http://localhost:8080/cat/
   ```
-
-  ​
 
 ## 创建数据库
 
@@ -103,7 +101,7 @@ CAT是一个Java语言编写的实时监控系统，能够跟各种流行的中�
 
 打开/data/appdatas/cat/client.xml客户端配置文件，
 
-```
+``` 
 <config mode="client"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema"
 xsi:noNamespaceSchemaLocation="config.xsd">
@@ -167,8 +165,6 @@ xsi:noNamespaceSchemaLocation="config.xsd">
 
 - 主要修改项为：url（数据库连接地址）、user（数据库用户名）、password（数据用户登录密码）
 
-
-
 ###  3.修改服务端服务配置:server.xml 
 
 　打开/data/appdatas/cat/server.xml服务端服务配置文件，
@@ -185,7 +181,6 @@ xsi:noNamespaceSchemaLocation="config.xsd">
     </console>
     <ldap ldapUrl="ldap://10.8.40.21:389/DC=dianpingoa,DC=com"/>
 </config>
-
 ```
 
 配置说明：
@@ -226,7 +221,6 @@ xsi:noNamespaceSchemaLocation="config.xsd">
       </group>
    </domain>
 </router-config>
-
 ```
 
 - 把backup-server设置为当前服务器对外IP地址，端口固定为2280;
@@ -235,15 +229,13 @@ xsi:noNamespaceSchemaLocation="config.xsd">
 * 点击“提交”按钮，保存修改的路由配置
 
 
-
-### 5.复制配置到27、28两机器
+### 5. 复制配置到27、28两机器
 
 - 拷贝 10.8.40.26机器/data/appdatas/cat/目录中client.xml、server.xml、datasources.xml三个配置文件到27、28两机器相同目录中
 
 - 修改server.xml配置中的 job-machine 和 alert-machine属性，都设置为false,禁用生成报告和报警功能，只开启监听功能
 - 启动27、28上的Tomcat,开启cat服务，完成服务端的配置及启动
 - （*若服务端只分配一台服务器，按10.8.40.26完成安装配置即可*）
-
 
 
 *这里记录我安装配置的过程，更详细的文档查看[官网](https://github.com/dianping/cat)*
