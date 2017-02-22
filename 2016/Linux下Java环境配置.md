@@ -1,6 +1,6 @@
-﻿# Linux下Java环境配置 
+# Linux下Java环境配置 
 
----
+
 
 ## 查看Java是否安装
 ```
