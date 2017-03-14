@@ -66,7 +66,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Hom
 
 - 进入hbase/bin目录启动hbase：./start-hbase.sh
 - 用`jps`命令查看Hbase是否启动成功，如果启动成功的会看到"HMaster"的进程
-- 初始化pinpoint需要的表：./hbase shell hbase-create.hbase  (这里的hbase-create.hbase在源码`pinpoint/hbase/scripts/hbase-create.hbase`)
+- 初始化pinpoint需要的表，在bin目录下执行：./hbase shell /opt/data/hbase-create.hbase  (这里的hbase-create.hbase在源码`pinpoint/hbase/scripts/hbase-create.hbase`)
 - 访问页面测试是否成功：http://localhost:16010/master-status  ，如果成功在页面的tables标签下能看到导入的表。
 - 也可以用命令来查看是否导入表成功，进入hbase，输入"status 'detailed'"可以查看初始化的表
 ```
@@ -83,6 +83,7 @@ hbase.client.port=2181
 ```
 指向zookeeper的地址和端口，如果是本机，端口默认，则这里不需更改。
 - 配置上面后，重启tomcat（*端口8086*）
+- 如果./startup.sh启动tomat没权限：chmod u+x *.sh 
 
 ### 3. 部署Pinpoint-web
 Pinpoint-web的配置和Pinpoint-collector相似：
