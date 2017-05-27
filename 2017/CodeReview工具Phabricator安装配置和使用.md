@@ -43,13 +43,64 @@
   ```
 
 
+```
+phabricator/ $ ./bin/config set mysql.host value
+phabricator/ $ ./bin/config set mysql.port value
+phabricator/ $ ./bin/config set mysql.user value
+phabricator/ $ ./bin/config set mysql.pass value
+
+```
+
 
 ### 2. Apache安装及配置 
+vim /etc/httpd/conf/httpd.conf
+
+```
+ ServerName 192.168.1.209
+<VirtualHost *>
+  # Change this to the domain which points to your host.
+
+  # Change this to the path where you put 'phabricator' when you checked it
+  # out from GitHub when following the Installation Guide.
+  #
+  # Make sure you include "/webroot" at the end!
+  DocumentRoot /opt/data/phabricator/phabricator/webroot
+
+  RewriteEngine on
+  RewriteRule ^(.*)$          /index.php?__path__=$1  [B,L,QSA]
+</VirtualHost>
+
+<Directory "/opt/data/phabricator/phabricator/webroot">
+  Order allow,deny
+  Allow from all
+</Directory>
+~
+```
+
+/etc/init.d/httpd start
 
 ### 3. Mysql安装及配置
 
 ### 4. Nginx安装及配置 
+```
+erver {
+        listen       80;
+        server_name  localhost;
+    root        /opt/data/phabricator/phabricator/webroot;
 
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            #root   html;
+            #index  index.html index.htm;
+             index index.php;
+        rewrite ^/(.*)$ /index.php?__path__=/$1 last;
+        }
+```
+
+./usr/local/nginx/sbin/nginx
 
 ## 使用入门
 
