@@ -1,0 +1,31 @@
+nohup java -javaagent:/Users/acheron/Work/software/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar -Dpinpoint.agentId=choice-doctor -Dpinpoint.applicationName=choice-doctor-1.1 -jar choice-doctor-concumer.jar &
+
+
+
+
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/Users/acheron/Work/software/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar"
+CATALINA_OPTS="$CATALINA_OPTS -Dpinpoint.agentId=pp20170224"
+CATALINA_OPTS="$CATALINA_OPTS -Dpinpoint.applicationName=MyTestPP"
+
+---------------
+
+nohup java -javaagent:/opt/data/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar -Dpinpoint.agentId=choice-doctor-provider -Dpinpoint.applicationName=choice-doctor-provider -jar choice-doctor-provider-0.0.1-SNAPSHOT.jar &
+
+
+nohup java -javaagent:/opt/data/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar -Dpinpoint.agentId=choice-doctor-consumer -Dpinpoint.applicationName=choice-doctor-consumer -jar choice-doctor-consumer-0.0.1-SNAPSHOT.jar &
+
+
+
+
+金华：
+
+nohup java -javaagent:/usr/local/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar -Dpinpoint.agentId=choice-channel-provider -Dpinpoint.applicationName=choice-channel-provider -jar choice-channel-provider-0.0.1-SNAPSHOT.jar &
+
+nohup java -javaagent:/usr/local/pinpoint/pp-agent/pinpoint-bootstrap-1.6.0.jar -Dpinpoint.agentId=choice-channel-consumer -Dpinpoint.applicationName=choice-channel-consumer -jar choice-channel-consumer-0.0.1-SNAPSHOT.jar &
+
+                     ?,                       ?,                       ? )
+
+
+
+
+mvn deploy:deploy-file -DgroupId=com.umanage.base -DartifactId=base -Dversion=0.0.2 -Dpackaging=aar -DrepositoryId=releases -Dfile=/Users/acheron/Downloads/com.umanage.base_0.0.2.aar -Durl=http://192.168.1.209:9081/repository/maven-releases/

@@ -108,7 +108,4 @@ erver {
 https://secure.phabricator.com/book/phabricator/article/managing_daemons/
 
 
-七彩云上七彩猿，满天星似满天星。
-蒙娜丽莎爱啃肉，惊鸿照影
-
 
