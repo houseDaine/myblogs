@@ -2,6 +2,9 @@ http://www.herohuang.com
 
 ## 2017
 - [希腊行旁白](2017/希腊行的旁白.md)
+- [分布式配置平台Apollo搭建记录](2017/分布式配置平台Apollo搭建记录:wq.md)
+- [利用canal实现mysql同步到redis](2017/利用canal实现mysql同步到redis.md)
+- [CodeReview工具Phabricator安装配置和使用](2017/CodeReview工具Phabricator安装配置和使用.md)
 - [分布式跟踪工具Pinpoint技术入门](2017/分布式跟踪工具Pinpoint技术入门.md)
 - [SSH免密码及别名登录设置](2017/SSH免密码及别名登录设置.md)
 - [实时应用监控平台CAT的安装和配置](2017/实时应用监控平台CAT的安装和配置.md)
