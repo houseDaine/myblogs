@@ -1,6 +1,5 @@
 # 搭建Hexo博客
 
-
 ## Hexo
 Hexo官网：http://hexo.io/zh-cn/
 
@@ -77,13 +76,16 @@ hexo s == hexo server
 hexo d == hexo deploy
 
 ## 绑定域名
-首先我们要一个 CNAME 文件（文件名叫 CNAME，没有文件后缀的），把该文件放在 \hexo\source 目录下，CNAME 上的内容需要写你具体要绑定的域名信息，比如我是 blog.herohuang.com，：
+首先我们要一个 CNAME 文件(没有文件后缀），把该文件放在 `\hexo\source` 目录下，
+- 进入source目录：cd /hexo/source/
+- 新建一个CNAME文件：touch CNAME
+- 打开CNAME，输入绑定的域名：vim CNAME 
+比如我是 blog.herohuang.com，：
+
 设置 CNAME 文件
 接着我们需要到 DNSPOD 上设置域名解析：https://www.dnspod.cn/
-设置域名解析
-设置域名解析
 设置好之后，等过几分钟域名解析好之后
-主机记录：code
-记录类型：CNAME
-记录值：ac-heron.github.io.（后面的这个点别忘记了）
-还有，要记得把 CNAME 那个文件再 deploy 到 Github 哦，不然还是访问不了的。
+- 主机记录：code
+- 记录类型：CNAME
+- 记录值：ac-heron.github.io.（后面的这个点别忘记了）
+- 注意：要把CNAME文件再deploy到Github 
